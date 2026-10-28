@@ -1,0 +1,283 @@
+/* Крок 1. Глобальне скидання та модель border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Крок 2.1. Глобальний скрол та компенсація для фіксованої шапки */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f0f4f8; /* Фон */
+    font-family: Arial, sans-serif; /* Шрифт */
+    color: #333333; /* Колір тексту */
+    line-height: 1.6; /* Інтервал */
+    padding-top: 80px; /* Компенсація висоти закріпленого хедера */
+    scroll-padding-top: 90px; /* Запобігання перекриттю заголовків при якірному переході */
+}
+
+/* Крок 2.2. Фіксація шапки (Header) сайту */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    z-index: 1000; /* Високий шар, щоб перекривати контент */
+    padding: 12px 0;
+}
+
+/* Крок 2.3. Flexbox для внутрішнього контейнера хедера */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1a202c;
+}
+
+/* Крок 2.4. Flexbox для списку навігації */
+.site-nav ul {
+    display: flex;
+    gap: 25px; /* Рівномірні відстані між пунктами меню */
+    list-style: none; /* Прибираємо стандартні маркери */
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    color: #4a5568;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.site-nav a:hover {
+    color: #3182ce;
+    background-color: #edf2f7;
+    text-decoration: none;
+}
+
+/* Крок 3.1. Контейнер-обгортка */
+.container {
+    max-width: 960px; /* Обмеження максимальної ширини */
+    margin: 0 auto; /* Центрування по горизонталі */
+    padding: 0 15px; /* Бокові внутрішні відступи */
+}
+
+/* Крок 4.1. Внутрішні відступи секцій (вертикальний ритм) */
+section.card {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Крок 4.2. Візуальне відокремлення (чергування фону секцій) */
+section.card:nth-child(odd) {
+    background-color: #ffffff; /* Білий фон для непарних секцій */
+}
+
+section.card:nth-child(even) {
+    background-color: #f7fafc; /* Світло-сірий фон для парних секцій */
+}
+
+/* Крок 3.2. Стилізація блоків-карток (.card) */
+.card {
+    border: 1px solid #e0e0e0; /* Рамка */
+    border-radius: 8px; /* Закруглення кутів */
+    margin-bottom: 25px; /* Зовнішній відступ знизу */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* М'яка тінь */
+}
+
+/* Крок 4.3. Локальне позиціонування (Бейдж) */
+.card-badge-wrapper {
+    position: relative; /* Батьківський контейнер для absolute */
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    right: 0;
+    background-color: #e53e3e;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(229, 62, 62, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Заголовки */
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1a202c;
+    text-align: center; /* Вирівнювання по центру */
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2d3748;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #4a5568;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.card h2:first-child,
+.card h3:first-child {
+    margin-top: 0;
+}
+
+.section-title {
+    border-bottom: 2px solid #cbd5e0;
+    padding-bottom: 5px;
+}
+
+/* Оформлення текстових елементів */
+p {
+    margin-bottom: 12px;
+}
+
+.intro {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #2d3748;
+}
+
+strong {
+    color: #e53e3e;
+}
+
+em, .highlight {
+    background-color: #fefcbf;
+    font-style: normal;
+    padding: 0 4px;
+    border-radius: 3px;
+}
+
+/* Оформлення посилань у тексті */
+a {
+    color: #3182ce;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2b6cb0;
+    text-decoration: underline;
+}
+
+/* Оформлення списків */
+ul {
+    list-style-type: square;
+    color: #4a5568;
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
+
+ol {
+    list-style-type: decimal-leading-zero;
+    color: #4a5568;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Стилізація таблиці */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #e2e8f0;
+    color: #1a202c;
+    font-weight: 700;
+}
+
+/* Стилізація головного зображення */
+.main-image {
+    display: block;
+    margin: 0 auto 20px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* Крок 3 (з практичної): Двовимірна верстка галереї за допомогою CSS Grid */
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три однакові колонки через фракції */
+    gap: 20px; /* Рівномірні відступи між елементами сітки */
+}
+
+.grid-gallery img {
+    width: 100%; /* Гумові зображення */
+    height: 220px;
+    object-fit: cover; /* Збереження пропорцій без спотворень */
+    border: 2px solid #cbd5e0;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
+}
+
+.grid-gallery img:hover {
+    transform: scale(1.02);
+}
+
+/* Крок 5. Плаваюча кнопка повернення (Back to Top) */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background-color: #3182ce;
+    color: #ffffff;
+    border-radius: 50%; /* Форма кола */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.back-to-top:hover {
+    background-color: #2b6cb0;
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-3px);
+}
