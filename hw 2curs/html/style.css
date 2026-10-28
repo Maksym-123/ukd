@@ -1,0 +1,164 @@
+/* Крок 1. Глобальне скидання та модель border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Загальні правила для фулл сторінки */
+body {
+    background-color: #f0f4f8; /* Фон */
+    font-family: Arial, sans-serif; /* Шрифт */
+    color: #333333; /* Колір тексту */
+    line-height: 1.6; /* Інтервал */
+    padding: 20px 0;
+}
+
+/* Крок 3.1. Контейнер-обгортка  */
+.container {
+    max-width: 960px; /* Обмеження максимальної ширини */
+    margin: 0 auto; /* Центрування по горизонталі */
+    padding: 0 15px; /* Бокові внутрішні відступи */
+}
+
+/* Крок 3.2. Стилізація блоків-карток (.card) */
+.card {
+    background-color: #ffffff; /* Білий фон картки */
+    padding: 20px; /* Внутрішні відступи */
+    border: 1px solid #e0e0e0; /* Рамка */
+    border-radius: 8px; /* Закруглення кутів */
+    margin-bottom: 25px; /* Зовнішній відступ знизу */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* М'яка тінь */
+}
+
+/* Заголовки */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    text-align: center; /* Вирівнювання по центру */
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2d3748;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 12px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #4a5568;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Прибираємо зайвий верхній відступ у першого заголовка всередині картки */
+.card h2:first-child,
+.card h3:first-child {
+    margin-top: 0;
+}
+
+/* Клас підзаголовків */
+.section-title {
+    border-bottom: 2px solid #cbd5e0;
+    padding-bottom: 5px;
+}
+
+/* Оформлення текстових елементів */
+p {
+    margin-bottom: 12px;
+}
+
+.intro {
+    font-size: 1.2rem; /* Більший шрифт */
+    font-style: italic; /* Курсив */
+    color: #2d3748;
+}
+
+strong {
+    color: #e53e3e; /* Колір для важливого тексту */
+}
+
+em, .highlight {
+    background-color: #fefcbf; /* Фоновий маркер для акценту (жовтий) */
+    font-style: normal;
+    padding: 0 4px;
+    border-radius: 3px;
+}
+
+/* Оформлення силок */
+a {
+    color: #3182ce; /* Колір за замовчуванням */
+    text-decoration: none; /* Прибираємо підкреслення */
+}
+
+a:hover {
+    color: #2b6cb0; /* Зміна кольору при наведенні */
+    text-decoration: underline; /* Поява підкреслення */
+}
+
+/* Оформлення списків */
+ul {
+    list-style-type: square; /* Маркування квадратиками */
+    color: #4a5568;
+    padding-left: 25px; /* Внутрішній відступ, щоб маркери не вилізали за межі блоку після скидання * */
+    margin-bottom: 15px;
+}
+
+ol {
+    list-style-type: decimal-leading-zero; /* Маркування числами з нулем (01, 02) */
+    color: #4a5568;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+
+li {
+    margin-bottom: 8px; /* Відступи між пунктами */
+}
+
+/* Крок 3.3. Стилізація таблиці (table) */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Об'єднання подвійних меж */
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px 12px; /* Внутрішні відступи комірок */
+    border: 1px solid #ccc; /* Межі комірок */
+    text-align: left;
+}
+
+th {
+    background-color: #e2e8f0; /* Виділення рядка заголовків іншим фоновим кольором */
+    color: #1a202c;
+    font-weight: 700;
+}
+
+/* Крок 3.4. Стилізація зображень та галереї */
+.main-image {
+    display: block;
+    margin: 0 auto; /* Центрування постера */
+    max-width: 100%; /* Адаптивність */
+    height: auto;
+    border-radius: 6px;
+}
+
+.gallery {
+    text-align: center; /* Центрування картинок у галереї */
+}
+
+.gallery img {
+    width: 420px; /* Фіксована ширина */
+    height: 240px; /* Фіксована висота */
+    object-fit: cover; /* Щоб картинки не розтягувалися і зберігали пропорції */
+    max-width: 100%; /* Адаптивність для вузьких екранів */
+    border: 2px solid #cbd5e0; /* Рамка */
+    border-radius: 6px;
+    margin: 10px; /* Акуратні відступи, щоб не злипалися */
+}
