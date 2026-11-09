@@ -19,6 +19,11 @@ body {
     scroll-padding-top: 90px; /* Запобігання перекриттю заголовків при якірному переході */
 }
 
+/* Гарантуємо блоковий тип відображення для нових семантичних елементів */
+main, section, article, aside, header, footer, nav {
+    display: block;
+}
+
 /* Крок 2.2. Фіксація шапки (Header) сайту */
 .site-header {
     position: fixed;
@@ -28,7 +33,7 @@ body {
     background-color: #ffffff;
     border-bottom: 1px solid #e0e0e0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    z-index: 1000; /* Високий шар, щоб перекривати контент */
+    z-index: 1000;
     padding: 12px 0;
 }
 
@@ -48,8 +53,8 @@ body {
 /* Крок 2.4. Flexbox для списку навігації */
 .site-nav ul {
     display: flex;
-    gap: 25px; /* Рівномірні відстані між пунктами меню */
-    list-style: none; /* Прибираємо стандартні маркери */
+    gap: 25px;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
@@ -71,9 +76,9 @@ body {
 
 /* Крок 3.1. Контейнер-обгортка */
 .container {
-    max-width: 960px; /* Обмеження максимальної ширини */
-    margin: 0 auto; /* Центрування по горизонталі */
-    padding: 0 15px; /* Бокові внутрішні відступи */
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 /* Крок 4.1. Внутрішні відступи секцій (вертикальний ритм) */
@@ -84,24 +89,25 @@ section.card {
 
 /* Крок 4.2. Візуальне відокремлення (чергування фону секцій) */
 section.card:nth-child(odd) {
-    background-color: #ffffff; /* Білий фон для непарних секцій */
+    background-color: #ffffff;
 }
 
 section.card:nth-child(even) {
-    background-color: #f7fafc; /* Світло-сірий фон для парних секцій */
+    background-color: #f7fafc;
 }
 
 /* Крок 3.2. Стилізація блоків-карток (.card) */
 .card {
-    border: 1px solid #e0e0e0; /* Рамка */
-    border-radius: 8px; /* Закруглення кутів */
-    margin-bottom: 25px; /* Зовнішній відступ знизу */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* М'яка тінь */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
 }
 
 /* Крок 4.3. Локальне позиціонування (Бейдж) */
 .card-badge-wrapper {
-    position: relative; /* Батьківський контейнер для absolute */
+    position: relative;
 }
 
 .badge {
@@ -119,12 +125,43 @@ section.card:nth-child(even) {
     letter-spacing: 0.5px;
 }
 
+/* Крок 4 (з вимогою стилізації зілля/блок-нотатки для <aside>): Оформлення блоку <aside> */
+.info-aside {
+    background-color: #ebf8ff; /* М'який пастельний фон */
+    border-left: 4px solid #3182ce; /* Вертикальна акцентна лінія зліва */
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 6px 6px 0;
+    font-style: italic; /* Курсивний шрифт */
+    color: #2b6cb0;
+}
+
+.info-aside h3 {
+    font-size: 1.1rem;
+    font-style: normal;
+    margin-bottom: 8px;
+    color: #1a365d;
+}
+
+.info-aside p {
+    margin-bottom: 0;
+}
+
+/* Стилізація карток-статей (<article>) */
+.feature-article {
+    margin-bottom: 20px;
+}
+
+.feature-article:last-child {
+    margin-bottom: 0;
+}
+
 /* Заголовки */
 h1 {
     font-size: 2.2rem;
     font-weight: 700;
     color: #1a202c;
-    text-align: center; /* Вирівнювання по центру */
+    text-align: center;
     margin-bottom: 15px;
 }
 
@@ -235,17 +272,18 @@ th {
     border-radius: 6px;
 }
 
-/* Крок 3 (з практичної): Двовимірна верстка галереї за допомогою CSS Grid */
+/* Двовимірна верстка галереї за допомогою CSS Grid */
 .grid-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Три однакові колонки через фракції */
-    gap: 20px; /* Рівномірні відступи між елементами сітки */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .grid-gallery img {
-    width: 100%; /* Гумові зображення */
+    width: 100%;
     height: 220px;
-    object-fit: cover; /* Збереження пропорцій без спотворень */
+    object-path: cover;
+    object-fit: cover;
     border: 2px solid #cbd5e0;
     border-radius: 6px;
     transition: transform 0.2s ease;
@@ -255,7 +293,25 @@ th {
     transform: scale(1.02);
 }
 
-/* Крок 5. Плаваюча кнопка повернення (Back to Top) */
+/* Стилізація підвалу сайту (<footer>) */
+.site-footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 40px;
+}
+
+.site-footer p {
+    margin-bottom: 5px;
+}
+
+.site-footer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Плаваюча кнопка повернення (Back to Top) */
 .back-to-top {
     position: fixed;
     bottom: 25px;
@@ -264,7 +320,7 @@ th {
     height: 45px;
     background-color: #3182ce;
     color: #ffffff;
-    border-radius: 50%; /* Форма кола */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
