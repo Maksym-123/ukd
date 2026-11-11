@@ -14,7 +14,7 @@
 
 <body>
 
-    <!-- Крок 1.1 & Крок 2.2: Закріплена шапка сайту з доступною навігацією -->
+    <!-- Закріплена шапка сайту з доступною навігацією -->
     <header class="site-header">
         <div class="container header-container">
             <div class="logo">Death Stranding</div>
@@ -24,12 +24,13 @@
                     <li><a href="#features">Особливості</a></li>
                     <li><a href="#equipment">Характеристики</a></li>
                     <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#contact">Контакти</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Крок 1.2: Головний стрижневий контейнер (<main>) -->
+    <!-- Головний стрижневий контейнер (<main>) -->
     <main id="main-content">
         <div class="container main-content-wrapper">
 
@@ -55,7 +56,7 @@
                     <em class="highlight">під'єднати поселення до Хіральної мережі</em>, аби знову об'єднати людей.
                 </p>
 
-                <!-- Крок 1.4: Довідковий блок (<aside>) усередині секції -->
+                <!-- Довідковий блок (<aside>) усередині секції -->
                 <aside class="info-aside">
                     <h3>Цікавий факт за темою</h3>
                     <p>Під час розробки гри Хідео Кодзіма надихався ізоляцією людей та концепцією «невидимих ниток» (кордонів), що об'єднують людство попри фізичні перешкоди.</p>
@@ -149,10 +150,68 @@
                 </div>
             </section>
 
+            <!-- Секція 5 (id="contact") Форма зворотного зв'язку -->
+            <section id="contact" class="card contact-section">
+                <h2 class="section-title">Зв'язатися з нами</h2>
+                <!-- Крок 1: Головний контейнер форми -->
+                <form action="#" method="POST" class="contact-form">
+                    
+                    <!-- Крок 2: Текстові поля (Ім'я та Email) -->
+                    <div class="form-group">
+                        <label for="user_name">Ім'я:</label>
+                        <input type="text" id="user_name" name="user_name" placeholder="Введіть ваше ім'я" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user_email">Електронна пошта:</label>
+                        <input type="email" id="user_email" name="user_email" placeholder="example@mail.com" required>
+                    </div>
+
+                    <!-- Крок 3: Розширені поля вибору (Select) -->
+                    <div class="form-group">
+                        <label for="topic">Оберіть тему звернення:</label>
+                        <select id="topic" name="topic">
+                            <option value="" disabled selected>--- Оберіть варіант ---</option>
+                            <option value="gameplay">Питання щодо геймплею</option>
+                            <option value="story">Обговорення сюжету</option>
+                            <option value="other">Інше запитання</option>
+                        </select>
+                    </div>
+
+                    <!-- Крок 3: Розширені поля вибору (Textarea) -->
+                    <div class="form-group">
+                        <label for="message">Повідомлення:</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Ваше повідомлення..."></textarea>
+                    </div>
+
+                    <!-- Крок 4: Радіокнопки -->
+                    <div class="form-group">
+                        <p class="group-label">Бажаний спосіб зв'язку:</p>
+                        <div class="radio-item">
+                            <input type="radio" id="contact_email" name="contact_method" value="email" checked>
+                            <label for="contact_email" class="inline-label">Відповісти на Email</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="contact_phone" name="contact_method" value="phone">
+                            <label for="contact_phone" class="inline-label">Зателефонувати</label>
+                        </div>
+                    </div>
+
+                    <!-- Крок 4 & 5: Чекбокс згоди (обов'язковий) -->
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms" class="inline-label">Я погоджуюсь на обробку персональних даних</label>
+                    </div>
+
+                    <!-- Крок 5: Кнопка відправлення -->
+                    <button type="submit" class="submit-btn">Надіслати повідомлення</button>
+                </form>
+            </section>
+
         </div>
     </main>
 
-    <!-- Крок 1.5: Оформлення підвалу сайту (<footer>) -->
+    <!-- Оформлення підвалу сайту (<footer>) -->
     <footer class="site-footer">
         <div class="container footer-container">
             <p>&copy; 2026 Максим Рижко. Усі права захищено.</p>
@@ -160,7 +219,7 @@
         </div>
     </footer>
 
-    <!-- Крок 2.3: Доступна плаваюча кнопка переходу нагору -->
+    <!-- Доступна плаваюча кнопка переходу нагору -->
     <a href="#about" class="back-to-top" aria-label="Повернутися на початок сторінки" title="Наверх">↑</a>
 
 </body>
