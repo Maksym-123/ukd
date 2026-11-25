@@ -17,10 +17,18 @@ body {
     line-height: 1.6; /* Інтервал */
     padding-top: 80px; /* Компенсація висоти закріпленого хедера */
     scroll-padding-top: 90px; /* Запобігання перекриттю заголовків при якірному переході */
+    overflow-x: hidden; /* ПР №8: Глобальне запобігання горизонтальному переповненню */
 }
 
 /* Гарантуємо блоковий тип відображення для нових семантичних елементів */
 main, section, article, aside, header, footer, nav {
+    display: block;
+}
+
+/* ПР №8 (Крок 2): Гнучкі медіадані — гумові зображення */
+img {
+    max-width: 100%;
+    height: auto;
     display: block;
 }
 
@@ -125,14 +133,14 @@ section.card:nth-child(even) {
     letter-spacing: 0.5px;
 }
 
-/* Крок 4 (з вимогою стилізації зілля/блок-нотатки для <aside>): Оформлення блоку <aside> */
+/* Оформлення блоку <aside> */
 .info-aside {
-    background-color: #ebf8ff; /* М'який пастельний фон */
-    border-left: 4px solid #3182ce; /* Вертикальна акцентна лінія зліва */
+    background-color: #ebf8ff;
+    border-left: 4px solid #3182ce;
     padding: 15px 20px;
     margin: 20px 0;
     border-radius: 0 6px 6px 0;
-    font-style: italic; /* Курсивний шрифт */
+    font-style: italic;
     color: #2b6cb0;
 }
 
@@ -244,7 +252,12 @@ li {
     margin-bottom: 8px;
 }
 
-/* Стилізація таблиці */
+/* Адаптивна обгортка та стилізація таблиці */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -282,7 +295,7 @@ th {
 .grid-gallery img {
     width: 100%;
     height: 220px;
-    object-position: center; /* Виправив неіснуючу властивість object-path */
+    object-position: center;
     object-fit: cover;
     border: 2px solid #cbd5e0;
     border-radius: 6px;
@@ -339,7 +352,7 @@ th {
 }
 
 /* ========================================================= */
-/* КРОК 6: ВІЗУАЛЬНА СТИЛІЗАЦІЯ ФОРМИ                        */
+/* КРОК 6 (ПР №6): ВІЗУАЛЬНА СТИЛІЗАЦІЯ ФОРМИ               */
 /* ========================================================= */
 
 .contact-section {
@@ -394,7 +407,7 @@ th {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
-/* Спеціальні стилі для радіокнопок та чекбоксів (щоб не були 100% ширини) */
+/* Спеціальні стилі для радіокнопок та чекбоксів */
 .radio-item {
     margin-bottom: 8px;
     display: flex;
@@ -439,4 +452,127 @@ th {
 
 .contact-form button[type="submit"]:hover {
     background-color: #2563eb;
+}
+
+/* ========================================================= */
+/* ПРАКТИЧНА РОБОТА №8: АДАПТИВНІСТЬ (RWD / МЕДІАЗАПИТИ)     */
+/* ========================================================= */
+
+/* Крок 3. Адаптація макета під планшети (@media screen and (max-width: 1024px)) */
+@media screen and (max-width: 1024px) {
+    /* Оптимізація колонок Grid з 3 до 2 */
+    .grid-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Коригування внутрішніх відступів секцій */
+    section.card {
+        padding: 25px 20px;
+    }
+
+    /* Масштабування титульного заголовка h1 */
+    h1 {
+        font-size: 1.85rem;
+    }
+}
+
+/* Крок 4. Мобільна оптимізація під смартфони (@media screen and (max-width: 768px)) */
+@media screen and (max-width: 768px) {
+    /* Оновлення верхнього відступу body під дворядкову шапку */
+    body {
+        padding-top: 125px;
+        scroll-padding-top: 135px;
+    }
+
+    /* Трансформація шапки сайту та навігаційного меню */
+    .header-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    header nav ul,
+    .site-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    /* Одноколонковий макет для галереї та карток */
+    .grid-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .card,
+    article {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Адаптація форми зворотного зв'язку */
+    form,
+    .contact-form {
+        width: 100%;
+        max-width: 100%;
+        padding: 18px 15px;
+    }
+
+    .radio-item,
+    .checkbox-group {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    /* Збільшення сенсорних областей (Touch Targets >= 44px x 44px) */
+    button[type="submit"],
+    .site-nav a,
+    .btn-top {
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-top {
+        width: 46px;
+        height: 46px;
+    }
+}
+
+/* Крок 5. Тонке доведення для компактних екранів (@media screen and (max-width: 480px)) */
+@media screen and (max-width: 480px) {
+    body {
+        padding-top: 155px;
+        scroll-padding-top: 165px;
+    }
+
+    /* Зменшення базового шрифту заголовків */
+    h1 {
+        font-size: 23px;
+        padding-top: 18px; /* Відступ зверху, щоб бейдж не перекривав заголовок */
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    /* Зменшення розмірів та зсув плаваючої кнопки повернення вгору */
+    .btn-top {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        right: 15px;
+        bottom: 15px;
+        font-size: 1.1rem;
+    }
+
+    /* Коригування бейджа у вузькому просторі */
+    span.badge {
+        top: -10px;
+        right: 0;
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
 }
